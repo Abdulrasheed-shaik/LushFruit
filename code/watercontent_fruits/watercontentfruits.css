@@ -1,0 +1,240 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+}
+.back{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    color: #969594;
+}
+.banner{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.banner .slider{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 100s linear infinite;
+    z-index: 2;
+}
+@keyframes autoRun {
+    from{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    }
+    to{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+.banner .slider .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+    translateZ(550px);
+    box-shadow: 0 0 5px black;
+    border-radius: 20px;
+}
+.banner .slider .item:hover {
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(550px) translateY(-50px)
+    rotateX(10deg) !important; /* Move item up */
+}
+.banner .slider .item img{
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 20px;
+
+}
+.banner .content{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner .content h1{
+    font-size: 4em;
+    color: #969594;
+    &:hover{
+        color: red;
+    }
+}
+.banner .slider .item-content {
+    color: #252838; /* Change text color */
+    background-color: rgba(255, 255, 255, 0.8); /* Optional background for readability */
+    border-radius: 20px; /* Rounded corners */
+    font-size: .8em; /* Adjust font size */
+    width: 100%; /* Limit width for better presentation */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.price{
+    display: flex;
+    justify-content: space-around;
+}
+input[type="submit"]{
+    background-color: rgb(9, 232, 9);
+    padding: 5px 10px;
+    font-size: 10px;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+.item-content p i{
+    color: goldenrod;
+  }
+@media screen and (max-width: 480px) {
+    .back{
+        margin-top: 10px;
+    }
+    .back h1{
+        font-size: 20px;
+        padding-left: 10px;
+        text-align: center;
+    }
+    .back img{
+        width: 30px;
+    }
+    .banner .slider{
+        width: 100px;
+        height: 220px;
+        top: 20%;
+        left: calc(50% - 50px);
+    }
+    .banner .slider .item{
+        transform: rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+    translateZ(180px);
+    &:hover{
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(180px) translateY(-30px);  
+    }
+    }
+    .banner .content h1 {
+        font-size: 1.5em;
+    }
+    .banner .content{
+        position: absolute;
+        top: 80%;
+        left: 50%;
+    }
+    @keyframes autoRun {
+        from{
+            transform: perspective(1000px) rotateX(-35deg) rotateY(0deg);
+        }
+        to{
+            transform: perspective(1000px) rotateX(-35deg) rotateY(360deg);
+        }
+}
+}
+@media screen and (min-width:481px) and (max-width:768px) {
+    
+    .banner .slider{
+        width: 120px;
+        height: 220px;
+        top: 20%;
+        left: calc(50% - 60px);
+    }
+    .banner .slider .item{
+        transform: rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+    translateZ(200px);
+    &:hover{
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(200px) translateY(-30px);
+    }
+    }
+    
+    .back img{
+        width: 30px;
+    }
+    .back h1{
+        font-size: 18px;
+        padding: 10px;
+        text-align: center;
+    }
+    .banner .content{
+        position: absolute;
+        top: 75%;
+        left: 50%;
+    }
+    .banner .content h1 {
+        font-size: 2em;
+    }
+    @keyframes autoRun {
+        from{
+            transform: perspective(1000px) rotateX(-35deg) rotateY(0deg);
+        }
+        to{
+            transform: perspective(1000px) rotateX(-35deg) rotateY(360deg);
+        }
+    }
+}
+@media screen and (min-width:769px) and (max-width:1024px) {
+    .banner .slider{
+        width: 160px;
+        height: 220px;
+        top: 15%;
+        left: calc(50% - 80px);
+    }
+    @keyframes autoRun {
+        from{
+            transform: perspective(1000px) rotateX(-25deg) rotateY(0deg);
+        }
+        to{
+            transform: perspective(1000px) rotateX(-25deg) rotateY(360deg);
+        }
+    }
+    .banner .slider .item{
+        transform: rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+    translateZ(320px);
+    &:hover{
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(320px) translateY(-30px);
+    }
+    }
+    .back img{
+        width: 40px;
+    }
+    .back h1{
+        font-size: 25px;
+        padding: 10px;
+        text-align: center;
+    }
+    .banner .content{
+        position: absolute;
+        top: 82%;
+        left: 50%;
+    }
+    .banner .content h1 {
+        font-size: 2.5em;
+    }
+}
+@media screen and (min-width:1025px) {
+    .banner .slider .item{
+        transform: rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+    translateZ(450px);
+    &:hover{
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(450px) translateY(-30px);
+    }
+    }
+    .banner .content{
+        position: absolute;
+        top: 84%;
+        left: 50%;
+    }
+    .banner .content h1 {
+        font-size: 2.2em;
+    }
+}

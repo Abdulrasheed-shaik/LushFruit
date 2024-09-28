@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LushFruit</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card{
+            box-shadow: 0 0 10px black;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 50px;
+            text-align: center;
+        }
+        input[type="submit"]{
+            background-color: rgb(9, 232, 9);
+            padding: 5px 20px;
+            font-size: 20px;
+            color: white;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Thank You!</h1>
+        <p>Your order has been successfully submitted. Thanks!</p>
+        <form action="../../code/landingpage/landpage.html">
+            <input type="submit" value="Continue Shopping..">
+        </form>
+    </div>
+
+    <!-- Confetti Script -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        // Trigger confetti on page load
+        window.onload = function() {
+            confetti({
+                particleCount: 1000,
+                spread: 1000,
+                origin: { y: 0.6 }
+            });
+        };
+    </script>
+</body>
+</html>

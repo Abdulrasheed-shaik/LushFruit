@@ -1,0 +1,182 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: absolute;
+    inset: 0;
+    background: url(./assets/otherimages/loginimg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+.container::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from var(--a), #45f3ff
+    0%,#45f3ff 10%, transparent 10%,transparent 80%, #45f3ff 100%);
+    border-radius: 20px;
+    animation: animate 2.5s linear infinite;
+}
+@property --a{
+    syntax: '<angle>'; 
+    inherits: false;
+    initial-value: 0deg;   
+}
+@keyframes animate {
+    0%{
+        --a: 0deg;
+    }
+    100%{
+        --a: 360deg;
+    }
+}
+.container{
+    position: relative;
+    width: 350px;
+    height: 340px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgb(0,0,0,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: 0.5s;
+    overflow: hidden;
+}
+.container span{
+    position: absolute;
+    inset: 5px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+.container span:before{
+    content:'';
+    position: absolute;
+    inset: 5px;
+    background: url(./assets/otherimages/loginimg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+}
+.container span::after{
+    content:'';
+    position: absolute;
+    inset: 5px;
+    background: url(./assets/otherimages/loginimg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px);
+}
+form{
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    transition: 0.5s;
+}
+form h2{
+    position: relative;
+    color: #fff;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+form .inputbox{
+    position: relative;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+
+}
+/* .valid{
+    display: flex;
+    flex-direction: column;
+}
+.valid p{
+    font-size: 12px;
+    margin-top: 4px;
+} */
+.valid input:invalid:not(:placeholder-shown), .valid input:valid:not(:placeholder-shown) {
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: calc(100% - 10px);
+}
+.valid input:invalid:not(:placeholder-shown){
+    border-color: red;
+    background-image: url(./assets/icons/icons8-cross-50.png);
+}
+.valid input:valid:not(:placeholder-shown){
+    border-color: rgb(9, 232, 9);
+    background-image: url(./assets/icons/icons8-checked-50\ \(1\).png);
+}
+/* input:invalid:not(:placeholder-shown) + p{
+    font-size: 12px;
+    color: red;
+} */
+.valid input:invalid ~ input[type="submit"]{
+    opacity: .6;
+    pointer-events: none;
+}
+form .inputbox a{
+  color: #fff;
+  text-decoration: none;  
+}
+form .inputbox a:nth-child(2){
+    text-decoration: underline;
+}
+form .inputbox input{
+    color: white;
+    width: 100%;
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 6px 15px;
+    background: rgba(0,0,0,0.15);
+    border-radius: 4px;
+    font-size: 0.85em;
+}
+form .inputbox input::placeholder{
+    color: rgba(255,255,255,0.25);
+}
+form .inputbox input[type="submit"]{
+    background: #2196f3;
+    font-weight: 500;
+    cursor: pointer;
+}
+@media screen and (max-width:480px){
+    
+    .container{
+        width: 230px;
+        height: 320px;
+    }
+    form .inputbox a{
+        font-size: 12px;  
+        font-weight: bold;
+    }
+}
+@media screen and (min-width:481px) and (max-width:768px){
+    .container{
+        width: 280px;
+        height: 320px;
+    }
+    form .inputbox a{
+        font-size: 15px;  
+        font-weight: bold;
+    }
+}

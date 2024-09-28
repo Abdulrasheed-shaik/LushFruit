@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: absolute;
+    inset: 0;
+    background: url(../../assets/otherimages/signupimg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+.container::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from var(--a), #DC143C
+    0%,#DC143C 10%, transparent 10%,transparent 80%, #ff1493 100%);
+    border-radius: 20px;
+    animation: animate 2.5s linear infinite;
+}
+@property --a{
+    syntax: '<angle>'; 
+    inherits: false;
+    initial-value: 0deg;   
+}
+@keyframes animate {
+    0%{
+        --a: 0deg;
+    }
+    100%{
+        --a: 360deg;
+    }
+}
+.container{
+    position: relative;
+    width: 350px;
+    height: 480px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgb(0,0,0,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: 0.5s;
+    overflow: hidden;
+}
+.container span{
+    position: absolute;
+    inset: 5px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+.container span:before{
+    content:'';
+    position: absolute;
+    inset: 5px;
+    background: url(../../assets/otherimages/signupimg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+}
+.container span::after{
+    content:'';
+    position: absolute;
+    inset: 5px;
+    background: url(../../assets/otherimages/signupimg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px);
+}
+form{
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    transition: 0.5s;
+}
+form h2{
+    position: relative;
+    color: #fff;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+form .inputbox{
+    position: relative;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+form .inputbox a{
+  color: #fff;
+  text-decoration: none;  
+}
+form .group{
+    color: #fff;
+    display: flex;
+}
+form .group a{
+    text-decoration: none;
+    font-family: bold;
+    color: #fff;
+    font-size: 1.2em;
+}
+form .inputbox a:nth-child(2){
+    text-decoration: underline;
+}
+form .inputbox input{
+    color: white;
+    width: 100%;
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 6px 15px;
+    background: rgba(0,0,0,0.15);
+    border-radius: 4px;
+    font-size: 0.85em;
+}
+form .inputbox input::placeholder{
+    color: rgba(255,255,255,0.25);
+}
+form .inputbox input[type="submit"]{
+    background: #f4343f;
+    font-weight: 500;
+    cursor: pointer;
+}
+.valid input:invalid:not(:placeholder-shown), .valid input:valid:not(:placeholder-shown) {
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: calc(100% - 10px);
+}
+.valid input:invalid:not(:placeholder-shown){
+    border-color: red;
+    background-image: url(../../assets/icons/icons8-cross-50.png);
+}
+.valid input:valid:not(:placeholder-shown){
+    border-color: rgb(9, 232, 9);
+    background-image: url(../../assets/icons/icons8-checked-50\ \(1\).png);
+}
+@media screen and (max-width:480px){
+    
+    .container{
+        width: 250px;
+        height: 420px;
+    }
+    form .group{
+        font-size: 12px;  
+        font-weight: bold;
+    }
+}
+@media screen and (min-width:481px) and (max-width:768px){
+    .container{
+        width: 300px;
+        height: 420px;
+    }
+    form .group{
+        font-size: 15px;  
+        font-weight: bold;
+    }
+}
